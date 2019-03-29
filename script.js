@@ -7,7 +7,7 @@ let insertCir = $("#insertCi")
 let sqside = $("#sqsideLength");
 let insertSq = $("#insertSq");
 let insertTri = $("#insertTri")
-let triHeight = $("#triheight")
+let triHeight = $("#triHeight")
 //create generic shape parent class
 class Shape {
     constructor(width, height) {
@@ -77,15 +77,21 @@ class Square extends Shape {
 class Triangle extends Shape {
     constructor(height) {
         super(height, height);
-        $(".triangle").css({
-            "height": "0",
-            "width": "0",
-            "border-bottom": "100px,solid, yellow",
-            "border-right": "100px, solid, transparent",
+        this.div.css({
+            "border-bottom": `${this.height}px solid yellow`,
+            "border-right": `${this.width}px solid transparent`,
             "position": "absolute"
+        });
+
+    }
+    triangleFix() {
+        this.div.css({
+            "height": 0,
+            "width": 0
         })
 
     }
+
 }
 // BUTTONS
 insertCir.click(() => {
@@ -106,8 +112,11 @@ insertSq.click(() => {
 insertTri.click(() => {
     let triangle = new Triangle(triHeight.val());
     triangle.createShape("triangle");
+    triangle.triangleFix();
+
 })
 let randVal = (min, max) => {
     return Math.floor(Math.random() * (max - min))
 }
+
 
