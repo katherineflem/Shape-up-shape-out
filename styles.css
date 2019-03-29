@@ -36,6 +36,20 @@ border: black solid 1pt;
 }
 .circle{
     background-color: purple;
-    position:relative;
-    border-radius: 100%;
+    position:absolute;
+    border-radius: 50%;
+    /* display:inline; */
+}
+
+.shape{
+    position:absolute;
+}
+
+.rectangle{
+    background-color:green;
+    position:absolute;
+}
+.square{
+    background-color: red;
+    position:absolute;
 }
